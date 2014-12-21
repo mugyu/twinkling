@@ -1,0 +1,6 @@
+!/.gitignore
+/.*/
+*tags
+*~
+/.bundle
+/vendor/bundle
