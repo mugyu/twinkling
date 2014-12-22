@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
-require "./twinkling"
+require "./twinkling/twinkling"
 
-run Rack::URLMap.new(
-  "/" => Twinkling
-)
+map "/twinkling" do
+  run Twinkling
+end
