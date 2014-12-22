@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-require 'sinatra/base'
+require "sinatra/base"
 
+# main class of Twinkling
 class Twinkling < Sinatra::Base
   enable :sessions
 
