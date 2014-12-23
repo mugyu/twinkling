@@ -7,7 +7,7 @@ class Twinkling < Sinatra::Base
 
   get "/" do
     pass if session[:user]
-    redirect to("/login")
+    redirect to("/login"), 303
   end
 
   get "/" do
@@ -22,14 +22,14 @@ class Twinkling < Sinatra::Base
     session.clear
     if valid_login(params[:user], params[:password])
       session[:user] = params[:user]
-      return redirect to("/")
+      return redirect to("/"), 303
     end
-    redirect to("/login")
+    redirect to("/login"), 303
   end
 
   post "/logout" do
     session.clear
-    redirect to("/login")
+    redirect to("/login"), 303
   end
 
   @@users = {:"mugyu" => "0w7XLqiIIwsT."}
