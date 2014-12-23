@@ -6,7 +6,7 @@ class Twinkling < Sinatra::Base
   enable :sessions
 
   get "/" do
-    pass if session[:is_login]
+    pass if session[:user]
     redirect to("/login")
   end
 
@@ -19,13 +19,23 @@ class Twinkling < Sinatra::Base
   end
 
   post "/login" do
-    params[:user] = params[:user]
-    session[:is_login] = true
-    redirect to("/")
+    session.clear
+    if valid_login(params[:user], params[:password])
+      session[:user] = params[:user]
+      return redirect to("/")
+    end
+    redirect to("/login")
   end
 
   post "/logout" do
     session.clear
     redirect to("/login")
+  end
+
+  @@users = {:"mugyu" => "0w7XLqiIIwsT."}
+
+  def valid_login(user, password)
+    return false unless @@users.has_key? user.to_sym
+    params[:password].crypt(@@users[user.to_sym]) == "0w7XLqiIIwsT."
   end
 end
