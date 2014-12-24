@@ -2,5 +2,6 @@
 /.*/
 *tags
 *~
+/Gemfile.lock
 /.bundle
 /vendor/bundle
