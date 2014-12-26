@@ -3,6 +3,6 @@ require "./twinkling/twinkling"
 require "./twinkling/authorization"
 
 map "/twinkling" do
-  use Authorization
-  run Twinkling
+  use Twinkling::Authorization
+  run Twinkling::Twinkling
 end
