@@ -4,7 +4,7 @@ require "./twinkling/lib/authorization"
 
 module Twinkling
   # authorization control class of Twinkling
-  class Authorization < Sinatra::Base
+  class Auth < Sinatra::Base
     enable :sessions
 
     get "/login" do

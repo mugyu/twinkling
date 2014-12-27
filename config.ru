@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
 require "./twinkling/twinkling"
-require "./twinkling/authorization"
+require "./twinkling/auth"
 
 map "/twinkling" do
-  use Twinkling::Authorization
+  use Twinkling::Auth
   run Twinkling::Twinkling
 end
